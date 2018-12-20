@@ -15,24 +15,28 @@ import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-//some changes to test git
+
 public class db_download {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-        String zipFilePath = "";//"C:/Users/hadas/Desktop/פרויקט/FastLane/DB/raw_data/gtfs.zip";
+        String zipFilePath = "C:/Users/hadas/Desktop/פרויקט/FastLane/DB/raw_data/gtfs.zip";
         
-        String destDir = "";//"C:/Users/hadas/Desktop/פרויקט/finalProject/finalProject/Fastlane/output";
+        String destDir = "C:/Users/hadas/Desktop/פרויקט/finalProject/finalProject/Fastlane/output";
         System.out.println("Start Time:" + new Date());
         unzip(zipFilePath, destDir);
         System.out.println("End Time:" + new Date());//add comment
-        
-        writeToPostgress(destDir);
+       
+       // writeToPostgress(destDir);
         System.out.println("finishhhhh");
         System.out.println("End Time postgres:" + new Date());
         
     }
 
+	private static void createSchema() {
+		
+	}
+	
     private static void writeToPostgress(String destDir) {
         File dir = new File(destDir);
         File[] folder = dir.listFiles();
