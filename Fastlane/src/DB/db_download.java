@@ -18,56 +18,23 @@ import java.util.zip.ZipInputStream;
 
 public class db_download {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-        String zipFilePath = "C:/Users/hadas/Desktop/פרויקט/FastLane/DB/raw_data/gtfs.zip";
-        
-        String destDir = "C:/Users/hadas/Desktop/פרויקט/finalProject/finalProject/Fastlane/output";
-        System.out.println("Start Time:" + new Date());
-        unzip(zipFilePath, destDir);
-        System.out.println("End Time:" + new Date());//add comment
-       
-       // writeToPostgress(destDir);
-        System.out.println("finishhhhh");
-        System.out.println("End Time postgres:" + new Date());
-        
-    }
-
-	private static void createSchema() {
-		
-	}
 	
-    private static void writeToPostgress(String destDir) {
+    public void writeToPostgress(String destDir) {
         File dir = new File(destDir);
         File[] folder = dir.listFiles();
-            for(File file : folder) {
-                System.out.println("File name: "+ file.getName());
-                String url = "jdbc:postgresql://localhost:5432/postgres";
-                String user = "postgres";
-                String password = "erutyhv5";
+        for( File f: folder) {
+        	System.out.println(f.getName());
+        }
 
-                try (Connection con = DriverManager.getConnection(url, user, password);
-                        Statement st = con.createStatement();
-                        ResultSet rs = st.executeQuery("SELECT VERSION()")) {
+	}
 
-                    if (rs.next()) {
-                        System.out.println(rs.getString(1));
-                    }
-
-                } catch (SQLException ex) {
-                
-                    Logger lgr = Logger.getLogger(db_download.class.getName());
-                    lgr.log(Level.SEVERE, ex.getMessage(), ex);
-                }
-            }
-      
-    }
-		
-
-	private static void unzip(String zipFilePath, String destDir) {
-        File dir = new File(destDir);
+	public void unzip(String zipFilePath, String destDir) {
+    
+		File dir = new File(destDir);
         // create output directory if it doesn't exist
-        if(!dir.exists()) dir.mkdirs();
+        if(!dir.exists()) {
+        	dir.mkdirs();
+        }
         FileInputStream fis;
         //buffer for read and write data to file
         byte[] buffer = new byte[1024];
@@ -98,8 +65,8 @@ public class db_download {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-    }
+       }
+     
 
 
 }
