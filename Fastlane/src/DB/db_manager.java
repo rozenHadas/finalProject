@@ -36,6 +36,7 @@ public class db_manager {
         System.out.println("finishhhhh");
         System.out.println("End Time postgres:" + new Date());
         
+        //test changes
     }
 	
 }
