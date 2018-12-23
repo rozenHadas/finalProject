@@ -21,7 +21,7 @@ public class db_update {
 			String agency_id = "";
 			String agency_name = "";
 			String agency_url = "";
-			 BufferedReader br = new BufferedReader(new FileReader("C:/Users/hadas/Desktop/Χ¤Χ¨Χ•Χ™Χ§Χ/finalProject/finalProject/Fastlane/output/agency.txt"));
+			 BufferedReader br = new BufferedReader(new FileReader("C:/Users/hadas/Desktop/τψειχθ/finalProject/finalProject/Fastlane/output/agency.txt"));
 			 String line = null;
 		        while ((line = br.readLine() )!=null)
 		        {

@@ -20,9 +20,9 @@ public class db_manager {
 		}
 		
 		//unzip gtfs files location
-        String zipFilePath = "C:/Users/hadas/Desktop/Χ¤Χ¨Χ•Χ™Χ§Χ/FastLane/DB/raw_data/gtfs.zip";        
+        String zipFilePath = "C:/Users/hadas/Desktop/τψειχθ/FastLane/DB/raw_data/gtfs.zip";        
         //unzip to output folder
-        String destDir = "C:/Users/hadas/Desktop/Χ¤Χ¨Χ•Χ™Χ§Χ/finalProject/finalProject/Fastlane/output";
+        String destDir = "C:/Users/hadas/Desktop/τψειχθ/finalProject/Fastlane/output";
         //check start time for unzipping
         System.out.println("Start Time:" + new Date());
         download_File.unzip(zipFilePath, destDir);
