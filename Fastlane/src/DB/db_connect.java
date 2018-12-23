@@ -17,7 +17,7 @@ public class db_connect {
 	//create connection
 	public void createConnection() {
 		
-        String url = "jdbc:postgresql://localhost:5432/postgres";
+        String url = "jdbc:postgresql://localhost:5432/fastLane";
         String user = "postgres";
         String password = "erutyhv5";
         try {
@@ -35,6 +35,10 @@ public class db_connect {
         }
         
 	}
+	
+	public Connection getConnection() {
+			return con;
+}
 	
 	public Statement getStatement() {
 			try {
@@ -60,6 +64,7 @@ public class db_connect {
 	public void closeStmt() throws SQLException {
 		stmt.close();
 	}
+	
 
 	
 
