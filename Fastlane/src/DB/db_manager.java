@@ -25,7 +25,7 @@ public class db_manager {
         String destDir = "C:/Users/hadas/Desktop/פרויקט/finalProject/Fastlane/output";
         //check start time for unzipping
         System.out.println("Start Time:" + new Date());
-        download_File.unzip(zipFilePath, destDir);
+        //download_File.unzip(zipFilePath, destDir);
         //check end time for unzipping
         System.out.println("End Time:" + new Date());
         // create connection once at db_connect class;
