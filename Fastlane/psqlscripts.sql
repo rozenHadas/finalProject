@@ -11,7 +11,7 @@ route_long_name	VARCHAR,
 route_desc		VARCHAR,
 route_type		INTEGER,
 route_color		INTEGER,
-PRIMARY KEY (route_id, route_type));
+PRIMARY KEY (route_id, route_type, route_color));
 
 /*
 CREATE TABLE calendar
