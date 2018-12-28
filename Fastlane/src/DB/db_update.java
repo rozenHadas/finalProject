@@ -48,12 +48,14 @@ public class db_update {
 		            route_desc = tmp[3];
 		            route_type = tmp[4]; 
 		            route_color = tmp[5];
-		        
+		         
+		            
 		        	String query = "INSERT INTO routes (route_id,agency_id,route_long_name,route_desc,route_type,route_color)"
 		        			+ "VALUES (" + Integer.parseInt(route_id) + "," + Integer.parseInt(agency_id) 
-		        			+",'" + route_long_name + "','" + route_desc + "','"+ route_type
+		        			+",'" + route_long_name + "',?,'"+ route_type
 		        			+"'," + Integer.parseInt(route_color) + ");" ;
 		        	ps = con.prepareStatement(query);
+		        	ps.setString(1, route_desc);
 		        	ps.executeUpdate();
 		        	
 		        	}
