@@ -42,17 +42,17 @@ public class db_update {
 		        	//Make sure the line is not null, not empty, and contains 2 comma char
 		        	if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("route")) {
 		            String tmp[] = line.split(",");
-		            route_id = tmp[5]; 
-		            agency_id = tmp[4];
-		            route_long_name = tmp[3];
-		            route_desc = tmp[2];
-		            route_type = tmp[1]; 
-		            route_color = tmp[0];
+		            route_id = tmp[0]; 
+		            agency_id = tmp[1];
+		            route_long_name = tmp[2];
+		            route_desc = tmp[3];
+		            route_type = tmp[4]; 
+		            route_color = tmp[5];
 		        
 		        	String query = "INSERT INTO routes (route_id,agency_id,route_long_name,route_desc,route_type,route_color)"
-		        			+ "VALUES (" + Integer.parseInt(route_id) + ",'" + agency_id 
-		        			+"',' " + route_long_name + "','" + route_desc + "'," + Integer.parseInt(route_type)
-		        			+"," + Integer.parseInt(route_color) + ");" ;
+		        			+ "VALUES (" + Integer.parseInt(route_id) + "," + Integer.parseInt(agency_id) 
+		        			+",'" + route_long_name + "','" + route_desc + "','"+ route_type
+		        			+"'," + Integer.parseInt(route_color) + ");" ;
 		        	ps = con.prepareStatement(query);
 		        	ps.executeUpdate();
 		        	
