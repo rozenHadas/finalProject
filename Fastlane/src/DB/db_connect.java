@@ -22,11 +22,6 @@ public class db_connect {
         String password = "erutyhv5";
         try {
         	con = DriverManager.getConnection(url, user, password);
-        /*	st = con.createStatement();
-        	rs = st.executeQuery("SELECT VERSION()");
-        	 if (rs.next()) {
-                 System.out.println(rs.getString(1));
-             }*/
             
         } catch (SQLException ex) {
         
@@ -38,7 +33,7 @@ public class db_connect {
 	
 	public Connection getConnection() {
 			return con;
-}
+	}
 	
 	public Statement getStatement() {
 			try {

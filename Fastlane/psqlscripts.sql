@@ -5,13 +5,13 @@ agency_name		VARCHAR NOT NULL,
 agency_url		VARCHAR);
 
 CREATE TABLE routes
-(route_id		INTEGER NOT NULL,
-agency_id		VARCHAR,
+(route_id		INTEGER PRIMARY KEY NOT NULL,
+agency_id		INTEGER,
 route_long_name	VARCHAR,
 route_desc		VARCHAR,
-route_type		INTEGER,
+route_type		VARCHAR,
 route_color		INTEGER,
-PRIMARY KEY (route_id, route_type));
+FOREIGN KEY (agency_id) REFERENCES agency (agency_id));
 
 /*
 CREATE TABLE calendar
