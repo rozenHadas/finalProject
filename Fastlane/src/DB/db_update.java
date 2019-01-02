@@ -25,11 +25,15 @@ public class db_update {
 		Agency.insertAgency(con, URL);
 		Routes.insertRoutes(con, URL);
 		System.out.println("Starting insert to calendar....");
-		Calendar.insertCalendar(con, URL);
+		//Calendar.insertCalendar(con, URL);
 		System.out.println("Starting insert to shape....");
-		Shape.insertShape(con, URL);
-		Stop_Times.insertStopTimes(con, URL);
+		//Shape.insertShape(con, URL);
+		System.out.println("Starting insert to trips....");
+		//Trips.insertTrips(con, URL);
+		System.out.println("Starting insert to stop....");
+		Stop.insertStops(con, URL);
 		System.out.println("Finishing....");
+
 	}
 
 	
