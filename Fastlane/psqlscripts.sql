@@ -1,4 +1,4 @@
-
+/*
 CREATE TABLE agency
 (agency_id		INTEGER PRIMARY KEY NOT NULL,
 agency_name		VARCHAR NOT NULL,
@@ -13,28 +13,33 @@ route_type		VARCHAR,
 route_color		INTEGER,
 FOREIGN KEY (agency_id) REFERENCES agency (agency_id));
 
-/*
+
 CREATE TABLE calendar
 (service_id		INTEGER PRIMARY KEY,
-date_bytes		INTEGER,
-short_date		DATE,
+date_bytes		BIT(7),
+start_date		DATE,
 end_date		DATE);
 
 CREATE TABLE shape
-(shape_id 		INTEGER PRIMARY KEY,
-shape_pt_lat_lon	POINT,
-shape_dist_traveled	NUMERIC);
+(shape_id 		INTEGER,
+shape_pt_lat	DECIMAL,
+shape_pt_lot	DECIMAL,
+shape_pt_sequence INTEGER,
+PRIMARY KEY (shape_id,shape_pt_sequence)
+);*/
+
 
 CREATE TABLE trips
-(trip_id		VARCHAR PRIMARY KEY,
-route_id		INTEGER NOT NULL,
+(route_id		INTEGER NOT NULL,
 service_id		INTEGER NOT NULL,
-direction_id	INTEGER,
+trip_id		VARCHAR PRIMARY KEY,
+direction_id	BIT(1),
 shape_id		INTEGER,
 FOREIGN KEY (route_id) REFERENCES routes (route_id),
 FOREIGN KEY (service_id) REFERENCES calendar (service_id),
 FOREIGN KEY (shape_id) REFERENCES shape (shape_id));
 
+/*
 CREATE TABLE stop
 (stop_id		INTEGER PRIMARY KEY,
 stop_code		INTEGER,

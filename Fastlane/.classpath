@@ -17,5 +17,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/hadas/Desktop/פרויקט/finalProject/Fastlane/apache-commons-net.jar.zip"/>
+	<classpathentry kind="lib" path="C:/Users/hadas/Desktop/פרויקט/finalProject/Fastlane/apache-commons-net.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

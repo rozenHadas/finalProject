@@ -1,2 +1,6 @@
 /target/
+/output_test/
 /output/
+apache-commons-net.jar
+apache-commons-net.jar.zip
+apache-maven-3.6.0-bin.zip
