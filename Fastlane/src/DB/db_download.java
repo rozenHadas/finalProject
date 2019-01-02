@@ -1,9 +1,16 @@
 package DB;
 
+import java.io.BufferedOutputStream;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -15,31 +22,29 @@ import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
+
 
 public class db_download {
 
-	
-    public void writeToPostgress(String destDir) {
-        File dir = new File(destDir);
-        File[] folder = dir.listFiles();
-        for( File f: folder) {
-        	System.out.println(f.getName());
-        }
 
-	}
-
-	public void unzip(String zipFilePath, String destDir) {
-    
+	public void unzip( String destDir) throws IOException {
+		
+		//URL url = new URL ("ftp://gtfs.mot.gov.il/israel-public-transportation.zip");
+		//URLConnection urlc = url.openConnection();
+		//InputStream is = urlc.getInputStream();
 		File dir = new File(destDir);
-        // create output directory if it doesn't exist
+		//System.out.println("pass");
+        // create output directory if it doesn't 
         if(!dir.exists()) {
         	dir.mkdirs();
-        }
+        
         FileInputStream fis;
         //buffer for read and write data to file
         byte[] buffer = new byte[1024];
         try {
-            fis = new FileInputStream(zipFilePath);
+            fis = new FileInputStream("C:/Users/hadas/Desktop/פרויקט/FastLane/DB/raw_data/gtfs.zip");
             ZipInputStream zis = new ZipInputStream(fis);
             ZipEntry ze = zis.getNextEntry();
             while(ze != null){
@@ -62,11 +67,11 @@ public class db_download {
             zis.closeEntry();
             zis.close();
             fis.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        	
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
         }
        }
-     
-
 
 }
