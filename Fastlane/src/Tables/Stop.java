@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class Stop {
 
-	@SuppressWarnings("null")
+	
 	public static void insertStops(Connection con, String URL) throws SQLException {
 		try {
 			PreparedStatement ps = null;
@@ -42,8 +42,9 @@ public class Stop {
 		            parent_station = tmp[7];
 		            
 		        
-		        	String query = "INSERT INTO trips (stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lot,location_type, parent_station)"
-		        			+ "VALUES (?, ?, ?,? ,?, ?, ?,NULLIF( parent_station ,''))"
+		        	String query = "INSERT INTO stop (stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lot"
+		        			+ ",location_type, parent_station)"
+		        			+ "VALUES (?, ?, ?,? ,?, ?, ?,?)"
 		        					+ "ON CONFLICT DO NOTHING;" ;
 		        	ps = con.prepareStatement(query);
 		        	ps.setInt(1,Integer.parseInt(stop_id));
@@ -53,7 +54,12 @@ public class Stop {
 		        	ps.setDouble(5, stop_lat);
 		        	ps.setDouble(6, stop_lot);
 		        	ps.setInt(7, Integer.parseInt(location_type));
-		        	System.out.println("parent is:"+ parent_station);
+		        	if(parent_station.equals(""))
+		        		ps.setNull(8, java.sql.Types.NULL);
+		        	else {
+		        		ps.setInt(8, Integer.parseInt(parent_station));
+		        	}
+		        	
 		        	ps.executeUpdate();
 		        	
 		        	}
