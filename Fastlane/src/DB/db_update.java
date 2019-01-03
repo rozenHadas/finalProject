@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
+import java.util.Date;
 
 import Tables.*;
 
@@ -28,8 +29,16 @@ public class db_update {
 		Calendar.insertCalendar(con, URL);
 		System.out.println("Starting insert to shape....");
 		Shape.insertShape(con, URL);
+		System.out.println("Starting insert to trips....");
+		//System.out.println("Trips time: "+new Date());
+		Trips.insertTrips(con, URL);
+		//System.out.println("Finish trips:"+new Date());
+		System.out.println("Starting insert to stop....");
+		Stop.insertStops(con, URL);
+		System.out.println("Starting insert to stop_times....");
 		Stop_Times.insertStopTimes(con, URL);
 		System.out.println("Finishing....");
+
 	}
 
 	

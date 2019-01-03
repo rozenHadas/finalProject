@@ -26,18 +26,21 @@ shape_pt_lat	DECIMAL,
 shape_pt_lot	DECIMAL,
 shape_pt_sequence INTEGER,
 PRIMARY KEY (shape_id,shape_pt_sequence)
-);*/
+);
 
-
+*/
 CREATE TABLE trips
 (route_id		INTEGER NOT NULL,
 service_id		INTEGER NOT NULL,
-trip_id		VARCHAR PRIMARY KEY,
+trip_id			VARCHAR,
 direction_id	BIT(1),
 shape_id		INTEGER,
+/*UNIQUE(shape_id),*/
+PRIMARY KEY(shape_id,trip_id),
 FOREIGN KEY (route_id) REFERENCES routes (route_id),
-FOREIGN KEY (service_id) REFERENCES calendar (service_id),
-FOREIGN KEY (shape_id) REFERENCES shape (shape_id));
+FOREIGN KEY (service_id) REFERENCES calendar (service_id));
+
+/*FOREIGN KEY (shape_id) REFERENCES shape (shape_id));*/
 
 /*
 CREATE TABLE stop
@@ -45,28 +48,23 @@ CREATE TABLE stop
 stop_code		INTEGER,
 stop_name		VARCHAR,
 stop_desc		VARCHAR,
-stop_lat_lon	POINT,
+stop_lat		DECIMAL,
+stop_lot		DECIMAL,
 location_type	SMALLINT,
-parent_station	INTEGER,
+parent_station	INTEGER NULL,
 FOREIGN KEY (parent_station) REFERENCES stop (stop_id));
+*/
 
-CREATE TABLE stop_times
+/*CREATE TABLE stop_times
 (trip_id		VARCHAR,
-arrival_time	VARCHAR,
+arrival_time	TIME,
 departure_time	TIME,
 stop_id			INTEGER, 
-stop_sequence	VARCHAR,
+stop_sequence	INTEGER,
 pickup_types	SMALLINT,
 drop_off_type	SMALLINT,
 shape_dist_traveled	NUMERIC,
 PRIMARY KEY (trip_id, stop_id, arrival_time),
 FOREIGN KEY (trip_id) REFERENCES trips (trip_id),
 FOREIGN KEY (stop_id) REFERENCES stop (stop_id));
-
-
-
-
- 
-
-
 */
